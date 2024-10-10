@@ -1,27 +1,41 @@
 body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Courier New', monospace;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-h1 {
-    font-size: 48px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+#countdown-container {
     text-align: center;
 }
 
-p {
-    font-size: 24px;
-    line-height: 1.5;
+#countdown {
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
-a {
-    color: #00f;
-    text-decoration: none;
+#skip-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-a:hover {
-    color: #f00;
-    text-decoration: underline;
+#skip-btn:hover {
+    background-color: #0056b3;
+}
+
+#main-content {
+    text-align: center;
+}
+
+#main-content h1 {
+    font-size: 36px;
+    color: #007bff;
 }

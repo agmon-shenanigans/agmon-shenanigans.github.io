@@ -3,30 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Agmon Shenanigans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Agmon Shenanigans</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Welcome to Agmon Shenanigans</h2>
-            <p>Agmon Shenanigans is a website dedicated to the shenanigans of Agmon. Agmon is a very shenanigan-y
-                person, and he has a lot of shenanigans to share with the world. If you're a fan of shenanigans, you've
-                come to the right place!</p>
-        </section>
-        <section>
-            <h2>Latest Shenanigans</h2>
-            <p>Agmon's latest shenanigan involved dressing up as a giant banana and running around the park. It was a
-                sight to behold, and it definitely got a lot of laughs from the onlookers. Agmon is always up to
-                something, so be sure to check back often for more shenanigans!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2021 Agmon Shenanigans. All rights reserved.</p>
-    </footer>
+    <div id="countdown-container">
+        <h1 id="countdown"></h1>
+        <button id="skip-btn">Skip Countdown</button>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <h1>Welcome to the Event!</h1>
+        <p>We're glad you're here.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 
 </html>
