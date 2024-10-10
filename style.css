@@ -10,9 +10,9 @@ body {
 
 #countdown-container {
     position: relative;
-    width: 600px;
+    width: 800px;
     /* Increased width */
-    height: 400px;
+    height: 500px;
     /* Increased height */
     background-color: white;
     border: 2px solid #007bff;
@@ -26,11 +26,13 @@ body {
 
 #countdown {
     font-size: 48px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
 
 #skip-btn {
     position: absolute;
+    top: 400px;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -52,4 +54,56 @@ body {
 #main-content h1 {
     font-size: 36px;
     color: #007bff;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #desktop-content {
+        display: none;
+    }
+
+    #mobile-content {
+        display: block;
+        margin: 10px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    #mobile-content h1 {
+        font-size: 30px;
+        color: #007bff;
+    }
+
+    #countdown-container {
+        position: relative;
+        width: 80%;
+        /* Increased width */
+        height: 50%;
+        /* Increased height */
+        background-color: white;
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #countdown {
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    #desktop-content {
+        display: block;
+    }
+
+    #mobile-content {
+        display: none;
+    }
 }
