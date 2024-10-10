@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    text-align: center;
 }
 
 #countdown-container {
@@ -22,6 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 
 #countdown {
@@ -31,7 +33,9 @@ body {
 }
 
 #skip-btn {
+
     position: absolute;
+    left: 40%;
     top: 400px;
     padding: 10px 20px;
     font-size: 16px;
@@ -54,6 +58,10 @@ body {
 #main-content h1 {
     font-size: 36px;
     color: #007bff;
+}
+
+#invisible-text {
+    color: #f0f0f0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -101,6 +109,7 @@ body {
 
     #desktop-content {
         display: block;
+
     }
 
     #mobile-content {
