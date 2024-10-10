@@ -2,7 +2,7 @@
 const countdownDate = new Date("2024-12-31T23:59:59").getTime();
 const button = document.getElementById("skip-btn");
 const container = document.getElementById("countdown-container");
-const buttonMoveThreshold = 100; // Distance at which the button moves
+const buttonMoveThreshold = 150; // Distance at which the button moves
 
 // Update the countdown every 1 second
 const countdownInterval = setInterval(() => {
