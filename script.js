@@ -1,8 +1,12 @@
 // Set the countdown date and time
-const countdownDate = new Date("2024-10-15T23:59:59").getTime();
+const countdownDate = new Date("2024-10-01T23:59:59").getTime();
 const button = document.getElementById("skip-btn");
 const container = document.getElementById("countdown-container");
 const buttonMoveThreshold = 85; // Distance at which the button moves
+const noobAid = true; // Set to false to disable noob aid
+const noobAidProbability = 169; // 1/p probability of noob aid
+let noobAidRandom = 0; // Random number for noob aid
+let countingDown = false; // Prevents multiple countdowns
 
 // Update the countdown every 1 second
 const countdownInterval = setInterval(() => {
@@ -16,15 +20,22 @@ const countdownInterval = setInterval(() => {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result
-    document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-    // If the countdown is finished
-    if (distance < 0) {
-        clearInterval(countdownInterval);
-        document.getElementById("countdown").innerHTML = "Event Started!";
-        showMainContent();
+    if (distance > 0) {
+        document.getElementById("countdown").innerHTML =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else { // If the countdown is finished... do nothing lol
+        document.getElementById("countdown").innerHTML =
+            `-${Math.abs(days)}d ${Math.abs(hours)}h ${Math.abs(minutes)}m ${Math.abs(seconds)}s`;
     }
+
+    // Thats what WOULD have happened after the countdown if we were to be sane
+    // if (distance < 0) {
+    //     clearInterval(countdownInterval);
+    //     document.getElementById("countdown").innerHTML = "Event Started!";
+    //     showMainContent();
+    // }
+    // Sadly for agmon... we are not sane.
+
 }, 1000);
 
 // Handle "Skip Countdown" button click
@@ -37,6 +48,7 @@ button.addEventListener("click", () => {
 function showMainContent() {
     document.getElementById("countdown-container").style.display = "none";
     document.getElementById("main-content").style.display = "block";
+    document.getElementById("invisible-text").style.display = "none";
 }
 
 // Make the button run away when the mouse gets close
@@ -59,6 +71,22 @@ container.addEventListener("mousemove", (e) => {
 
 // Move the button to a random position within the container
 function moveButton() {
+    if (noobAid) {
+        if (noobAidRandom === 1) {
+            document.getElementById("skip-btn").innerHTML = "Catching my breath...";
+            if (!countingDown) {
+                countingDown = true;
+                setTimeout(() => {
+                    noobAidRandom = 0;
+                    document.getElementById("skip-btn").innerHTML = "Skip Countdown";
+                    countingDown = false;
+                }, 500);
+            }
+            return;
+        }
+        noobAidRandom = Math.round(Math.random() * noobAidProbability);
+        console.log(noobAidRandom);
+    }
     const containerRect = container.getBoundingClientRect();
 
     const randomX = Math.random() * (containerRect.width - button.offsetWidth);
