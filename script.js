@@ -1,15 +1,24 @@
 // Set the countdown date and time
-const countdownDate = new Date("2024-10-01T23:59:59").getTime();
+const countdownDate = new Date("2024-10-15T23:59:59").getTime();
 const button = document.getElementById("skip-btn");
 const container = document.getElementById("countdown-container");
 const buttonMoveThreshold = 85; // Distance at which the button moves
 const noobAid = true; // Set to false to disable noob aid
-const noobAidProbability = 169; // 1/p probability of noob aid
+const startingNoobAidProbability = 169; // 1/p probability of noob aid
+let noobAidProbability = startingNoobAidProbability;
 let noobAidRandom = 0; // Random number for noob aid
 let countingDown = false; // Prevents multiple countdowns
+const startTime = new Date().getTime();
 
 // Update the countdown every 1 second
 const countdownInterval = setInterval(() => {
+    let currTime = new Date().getTime();
+    let timeAlive = Math.floor((currTime - startTime) / 1000);
+    // console.log(timeAlive);
+
+    if (timeAlive > 60) {
+        noobAidProbability = Math.max(1, startingNoobAidProbability - Math.floor((timeAlive - 60) / 2));
+    }
     const now = new Date().getTime();
     const distance = countdownDate - now;
 
@@ -71,6 +80,9 @@ container.addEventListener("mousemove", (e) => {
 
 // Move the button to a random position within the container
 function moveButton() {
+    let currTime = new Date().getTime();
+    let timeAlive = Math.floor((currTime - startTime) / 1000);
+
     if (noobAid) {
         if (noobAidRandom === 1) {
             document.getElementById("skip-btn").innerHTML = "Catching my breath...";
@@ -78,14 +90,18 @@ function moveButton() {
                 countingDown = true;
                 setTimeout(() => {
                     noobAidRandom = 0;
-                    document.getElementById("skip-btn").innerHTML = "Skip Countdown";
+                    if (timeAlive > 120) {
+                        document.getElementById("skip-btn").innerHTML = "I'ts at the top right side.";
+                    } else {
+                        document.getElementById("skip-btn").innerHTML = "Skip Countdown";
+                    }
                     countingDown = false;
                 }, 500);
             }
             return;
         }
         noobAidRandom = Math.round(Math.random() * noobAidProbability);
-        console.log(noobAidRandom);
+        // console.log(noobAidRandom);
     }
     const containerRect = container.getBoundingClientRect();
 

@@ -61,7 +61,20 @@ body {
     color: #007bff;
 }
 
-#invisible-text {
+#left-invisible-text {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    margin: 0px;
+    color: #f0f0f0;
+}
+
+#right-invisible-text {
+    text-align: right;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin: 0px;
     color: #f0f0f0;
 }
 
